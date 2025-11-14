@@ -1,0 +1,212 @@
+.section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 120px;
+}
+
+.header {
+  margin-bottom: 30px;
+}
+
+.title {
+  font-size: 30px;
+  font-weight: 800;
+  color: #000;
+  margin-bottom: 12px;
+}
+
+.subtitleContainer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.subtitle {
+  font-size: 18px;
+  font-weight: 400;
+  color: #000;
+  margin: 0;
+}
+
+.subtitleLink {
+  font-weight: 700;
+  color: #1b5f8a;
+  text-decoration: underline;
+}
+
+.arrow {
+  flex-shrink: 0;
+}
+
+.listings {
+  display: flex;
+  gap: 13px;
+  overflow-x: auto;
+  padding-bottom: 20px;
+  position: relative;
+  scroll-snap-type: x mandatory;
+}
+
+.listings::-webkit-scrollbar {
+  height: 8px;
+}
+
+.listings::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.listings::-webkit-scrollbar-thumb {
+  background: #1b5f8a;
+  border-radius: 4px;
+}
+
+.card {
+  flex: 0 0 177px;
+  scroll-snap-align: start;
+  background: #fff;
+  border-radius: 4.8px;
+  box-shadow: 0px 1.67px 5.01px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.imageContainer {
+  position: relative;
+  height: 100px;
+  overflow: hidden;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.badge {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  background: #397c3c;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  padding: 2px 3px;
+  border-radius: 5.7px;
+}
+
+.content {
+  padding: 12px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 38px;
+  flex: 1;
+}
+
+.headerInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.year {
+  font-size: 12.5px;
+  font-weight: 500;
+  color: #000;
+  margin: 0;
+}
+
+.model {
+  font-size: 16.7px;
+  font-weight: 800;
+  color: #000;
+  line-height: 1.1;
+  margin: 0;
+  letter-spacing: -0.17px;
+}
+
+.package {
+  font-size: 12.5px;
+  font-weight: 500;
+  color: #737373;
+  margin: 0;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.price {
+  font-size: 18.8px;
+  font-weight: 800;
+  color: #000;
+  margin: 0;
+  letter-spacing: -0.19px;
+}
+
+.divider {
+  height: 1px;
+  background: #e0e0e0;
+  width: 100%;
+}
+
+.dealerInfo {
+  display: flex;
+  gap: 3px;
+  align-items: flex-start;
+}
+
+.pinIcon {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.dealer {
+  font-size: 11.5px;
+  font-weight: 500;
+  color: #000;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.distance {
+  font-size: 11.5px;
+  font-weight: 500;
+  color: #737373;
+  margin: 0;
+}
+
+.scrollButton {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #000;
+  border: none;
+  border-radius: 100px;
+  width: 33px;
+  height: 33px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+
+.scrollButton:hover {
+  background: #333;
+}
+
+@media (max-width: 1200px) {
+  .section {
+    padding: 40px 60px;
+  }
+}
+
+

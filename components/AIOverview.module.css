@@ -1,0 +1,114 @@
+.section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 120px;
+}
+
+.container {
+  background: linear-gradient(
+    140.196deg,
+    #1b5f8a 2.9753%,
+    #d2232a 57.671%
+  );
+  border-radius: 10px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 64px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 800;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.48px;
+  margin: 0;
+}
+
+.sparkle {
+  flex-shrink: 0;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #eaeaea;
+  border-radius: 4px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.subtitle {
+  font-size: 20px;
+  font-weight: 800;
+  color: #222;
+  margin: 0;
+}
+
+.textContent {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.carName {
+  font-size: 18px;
+  font-weight: 800;
+  color: #1b5f8a;
+  margin: 0;
+}
+
+.description {
+  font-size: 15px;
+  font-weight: 500;
+  color: #000;
+  line-height: 1.5;
+  margin: 0 0 16px;
+}
+
+.readMore {
+  font-size: 15px;
+  font-weight: 500;
+  color: #1b5f8a;
+  text-decoration: underline;
+  align-self: flex-start;
+}
+
+.disclaimer {
+  background: #fff;
+  border: 1px solid #eaeaea;
+  border-radius: 4px;
+  padding: 16px;
+}
+
+.disclaimerText {
+  font-size: 12px;
+  font-weight: 500;
+  font-style: italic;
+  color: #222;
+  line-height: 1.3;
+  margin: 0;
+}
+
+@media (max-width: 1200px) {
+  .section {
+    padding: 40px 60px;
+  }
+}
+
+
