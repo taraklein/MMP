@@ -1,93 +1,76 @@
 .hero {
   position: relative;
-  height: 809px;
-  margin-top: 122px;
+  height: 805px;
   overflow: hidden;
+  border-bottom: none;
+  background: transparent;
 }
 
-.heroImageContainer {
+.hero::before {
+  content: '';
   position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.heroImage {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-}
-
-.heroOverlay {
-  position: absolute;
-  inset: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background: linear-gradient(
     to bottom,
-    rgba(0, 0, 0, 0) 19.23%,
-    rgba(0, 0, 0, 0) 53.85%,
-    rgba(0, 0, 0, 0.604) 100%
+    rgba(255, 237, 218, 0.4) 0%,
+    rgba(255, 237, 218, 0.2) 30%,
+    rgba(255, 237, 218, 0) 60%,
+    rgba(0, 0, 0, 0.3) 100%
   );
-  mix-blend-mode: multiply;
+  z-index: 1;
+  pointer-events: none;
 }
 
-.heroContent {
+.breadcrumb {
   position: relative;
   z-index: 10;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 100px 120px 0;
-  height: 100%;
+  padding: 24px 0 20px;
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
 }
 
-.titleContainer {
-  position: relative;
-  margin-bottom: 20px;
-}
-
-.titleBackground {
-  position: absolute;
-  inset: 0;
-  background: #FFFFFFBF;
-  border-radius: 6px;
-  opacity: 1;
-  z-index: 0;
-}
-
-.titleContent {
-  position: relative;
-  z-index: 1;
-  padding: 20px;
-}
-
-.badges {
+.breadcrumbLinks {
   display: flex;
-  gap: 4px;
-  flex-wrap: wrap;
-  margin-bottom: 20px;
-}
-
-.badge {
+  align-items: center;
+  gap: 8px;
   background: rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(5px);
-  border: 1px solid #cdcdcd;
-  border-radius: 25px;
-  padding: 4px 12px;
-  font-size: 12px;
-  font-weight: 500;
-  text-transform: uppercase;
-  color: #000;
-  white-space: nowrap;
+  backdrop-filter: blur(10px);
+  border-radius: 6px;
+  padding: 18px 20px;
 }
 
-.badge:first-child {
-  background: #fff;
-  border-color: #1b5f8a;
+.breadcrumbLink {
   color: #1b5f8a;
-  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.breadcrumbLink:hover {
+  color: #154a6b;
+  text-decoration: underline;
+}
+
+.breadcrumbSeparator {
+  color: #999;
+}
+
+.breadcrumbCurrent {
+  color: #222;
+  font-weight: 500;
+}
+
+
+.leftContent {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
 .yearDropdownContainer {
@@ -96,24 +79,27 @@
 }
 
 .yearBadge {
-  background: #fff;
-  border-color: #1b5f8a;
-  color: #1b5f8a;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1.5px solid #1B5F8A;
+  border-radius: 6px;
+  padding: 6px 16px;
+  font-size: 14px;
   font-weight: 700;
+  color: #1B5F8A;
   cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 4px;
-  transition: background 0.2s;
+  gap: 8px;
+  transition: all 0.2s;
+  backdrop-filter: blur(10px);
 }
 
 .yearBadge:hover {
-  background: #f0f7fc;
+  background: rgba(255, 255, 255, 1);
 }
 
 .dropdownArrow {
-  font-size: 8px;
-  margin-left: 2px;
+  font-size: 10px;
   transition: transform 0.2s;
 }
 
@@ -123,82 +109,157 @@
 
 .dropdownMenu {
   position: absolute;
-  top: calc(100% + 4px);
+  top: calc(100% + 8px);
   left: 0;
   background: #fff;
-  border: 1px solid #1b5f8a;
-  border-radius: 25px;
-  padding: 4px;
+  border: 1.5px solid #000;
+  border-radius: 8px;
+  padding: 8px;
   min-width: 100%;
   z-index: 1000;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
 }
 
 .dropdownItem {
   background: transparent;
   border: none;
-  border-radius: 20px;
-  padding: 4px 12px;
-  font-size: 12px;
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-size: 14px;
   font-weight: 500;
-  text-transform: uppercase;
   color: #000;
   cursor: pointer;
   text-align: left;
-  white-space: nowrap;
-  transition: background 0.2s, color 0.2s;
+  width: 100%;
+  transition: background 0.2s;
 }
 
 .dropdownItem:hover {
-  background: rgba(27, 95, 138, 0.1);
-  color: #1b5f8a;
+  background: #f0f0f0;
 }
 
 .dropdownItemActive {
-  background: #1b5f8a;
+  background: #000;
   color: #fff;
   font-weight: 700;
 }
 
 .dropdownItemActive:hover {
-  background: #154a6b;
+  background: #333;
+}
+
+.badges {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.badge {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #cdcdcd;
+  border-radius: 25px;
+  padding: 6px 14px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #000;
+  letter-spacing: 0.5px;
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.badgeIcon {
+  flex-shrink: 0;
+  display: inline-block;
+}
+
+.favoriteButton {
+  background: rgba(255, 255, 255, 0.95);
+  border: 2px solid #1b5f8a;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #1b5f8a;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s;
+  backdrop-filter: blur(10px);
+}
+
+.favoriteButton:hover {
+  background: #1b5f8a;
   color: #fff;
 }
 
+.favoriteButton:hover svg path {
+  stroke: #fff;
+}
+
+.mainContent {
+  position: relative;
+  z-index: 10;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 0 32px;
+}
+
+.titleSection {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(10px);
+  border-radius: 6px;
+  padding: 18px 20px;
+  position: relative;
+}
+
+.titleSectionTop {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
 .title {
-  font-size: 44px;
+  font-size: 46px;
   font-weight: 800;
   color: #000;
-  margin: 20px 0 10px;
-  text-shadow: 0 2px 4px rgba(255, 255, 255, 0.5);
+  margin: 0 0 12px;
+  line-height: 1.1;
 }
 
 .subtitle {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 700;
   color: #1b5f8a;
   text-decoration: underline;
-  margin-bottom: 20px;
+  margin: 0;
 }
 
 .ratingBadge {
   position: absolute;
   top: 20px;
-  right: 20px;
+  right: 24px;
+  bottom: 20px;
   background: #1b5f8a;
-  border-radius: 4.5px;
-  padding: 12px 16px;
+  border-radius: 6px;
+  padding: 20px 20px 20px 24px;
   text-align: center;
-  width: 145px;
-  border: none;
-  z-index: 2;
+  min-width: 120px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 1;
 }
 
 .ratingScore {
-  font-size: 38px;
+  font-size: 42px;
   font-weight: 800;
   color: #fff;
   line-height: 1;
@@ -206,99 +267,153 @@
 
 .ratingScore::after {
   content: '/10';
-  font-size: 22.5px;
+  font-size: 24px;
+  font-weight: 700;
 }
 
 .ratingLabel {
-  font-size: 13.5px;
-  font-weight: 500;
+  font-size: 12px;
+  font-weight: 600;
   color: #fff;
   text-transform: uppercase;
-  letter-spacing: 0.54px;
-  margin-top: 4px;
-  border-top: 1.5px dashed #fff;
-  padding-top: 4px;
+  letter-spacing: 1px;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1.5px dashed rgba(255, 255, 255, 0.5);
+}
+
+.heroImageContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 805px;
+  z-index: 0;
+  overflow: hidden;
+  background: transparent;
+}
+
+.heroImageContainer > span {
+  position: absolute !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.heroImage {
+  width: 100%;
+  object-fit: cover;
+  object-position: center 75%;
+  transform: scale(1.0);
 }
 
 .priceSection {
-  background: rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(5px);
-  border-radius: 6px;
-  padding: 20px;
-  margin-top: auto;
-  margin-bottom: 40px;
-  max-width: 400px;
+  position: absolute;
+  top: 805px;
+  left: 0;
+  right: 0;
+  transform: translateY(-100%);
+  z-index: 10;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.priceRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
 }
 
 .priceLabel {
   font-size: 14px;
-  font-weight: 500;
-  color: #fff;
+  font-weight: 600;
+  color: #ffffff;
   text-transform: uppercase;
-  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+}
+
+.priceLabel span {
+  font-family: "Inter", sans-serif;
+  font-weight: 800;
 }
 
 .price {
-  font-size: 40px;
+  font-size: 38px;
   font-weight: 800;
-  color: #fff;
-  text-align: center;
-  margin: 8px 0;
+  color: #ffffff;
+  margin: 0 24px 0 8px;
 }
 
 .shopButton {
   background: #1b5f8a;
-  color: #fff;
-  border: 1px solid #fff;
+  color: #ffffff;
+  border: 1px solid #ffffff;
   border-radius: 4px;
-  padding: 12px 24px;
-  font-size: 12px;
+  padding: 14px 28px;
+  font-size: 13px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.48px;
+  letter-spacing: 0.5px;
   cursor: pointer;
-  width: 100%;
-  margin: 12px 0;
-  transition: background 0.2s;
+  transition: all 0.2s;
 }
 
 .shopButton:hover {
   background: #154a6b;
+  border-color: #ffffff;
 }
 
-.priceNote {
+.priceLink {
   font-size: 14px;
-  color: #fff;
+  color: #ffffff;
   text-decoration: underline;
-  text-align: center;
   cursor: pointer;
-  margin-top: 8px;
-}
-
-.quoteSection {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 40px 120px;
+  transition: color 0.2s;
   text-align: center;
 }
 
-.quoteLabel {
-  font-size: 18px;
-  font-weight: 500;
-  text-transform: uppercase;
-  margin-bottom: 16px;
-  color: #000;
+.priceLink:hover {
+  color: rgba(255, 255, 255, 0.8);
 }
 
-.quote {
-  font-size: 26px;
-  line-height: 1.4;
-  color: #000;
-  max-width: 700px;
-  margin: 0 auto;
+@media (max-width: 1024px) {
+  .titleSectionTop {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .ratingBadge {
+    position: relative;
+    top: auto;
+    right: auto;
+    width: 100%;
+    margin-top: 16px;
+  }
+
+  .priceRow {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .price {
+    margin: 0;
+  }
 }
 
-.quote strong {
-  font-weight: 800;
-}
+@media (max-width: 768px) {
+  .title {
+    font-size: 36px;
+  }
 
+  .priceSection {
+    flex-direction: column;
+    text-align: center;
+  }
+}

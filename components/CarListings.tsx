@@ -2,60 +2,60 @@ import styles from './CarListings.module.css'
 
 const listings = [
   {
-    image: "http://localhost:3845/assets/d46073668fa7b6f8e183700371b0d4ce29b8cbb9.png",
+    image: "/images/listings/simari-telluride-comparo.png",
     year: "2025",
-    model: "2025 Chevrolet Silverado 1500",
-    package: "Comfort Package",
-    price: "$37,645",
-    dealer: "Champion Cuer Chrysler Dodge Jeep",
-    distance: "7 miles away",
+    model: "2025 Kia Telluride",
+    package: "SX Prestige Package",
+    price: "$45,890",
+    dealer: "Simari Kia",
+    distance: "3 miles away",
     badge: "GOOD PRICE"
   },
   {
-    image: "http://localhost:3845/assets/d46073668fa7b6f8e183700371b0d4ce29b8cbb9.png",
+    image: "/images/listings/simari-telluride-comparo2.png",
     year: "2025",
-    model: "2025 Chevrolet Silverado 1500",
-    package: "Comfort Package",
-    price: "$37,645",
-    dealer: "Champion Cuer Chrysler Dodge Jeep",
-    distance: "7 miles away",
+    model: "2025 Kia Telluride",
+    package: "EX Package",
+    price: "$42,500",
+    dealer: "Simari Kia",
+    distance: "3 miles away",
     badge: "GOOD PRICE"
   },
   {
-    image: "http://localhost:3845/assets/d46073668fa7b6f8e183700371b0d4ce29b8cbb9.png",
+    image: "/images/listings/urbano-telluride.png",
     year: "2025",
-    model: "2025 Chevrolet Silverado 1500",
-    package: "Comfort Package",
-    price: "$37,645",
-    dealer: "Champion Cuer Chrysler Dodge Jeep",
-    distance: "7 miles away",
+    model: "2025 Kia Telluride",
+    package: "SX Package",
+    price: "$44,200",
+    dealer: "Urbano Kia",
+    distance: "5 miles away",
     badge: "GOOD PRICE"
   },
   {
-    image: "http://localhost:3845/assets/d46073668fa7b6f8e183700371b0d4ce29b8cbb9.png",
+    image: "/images/listings/urbano-telluride2.png",
     year: "2025",
-    model: "2025 Chevrolet Silverado 1500",
-    package: "Comfort Package",
-    price: "$37,645",
-    dealer: "Champion Cuer Chrysler Dodge Jeep",
-    distance: "7 miles away",
+    model: "2025 Kia Telluride",
+    package: "LX Package",
+    price: "$38,900",
+    dealer: "Urbano Kia",
+    distance: "5 miles away",
     badge: "GOOD PRICE"
   },
   {
-    image: "http://localhost:3845/assets/d46073668fa7b6f8e183700371b0d4ce29b8cbb9.png",
+    image: "/images/listings/simari-telluride-comparo.png",
     year: "2025",
-    model: "2025 Chevrolet Silverado 1500",
-    package: "Comfort Package",
-    price: "$37,645",
-    dealer: "Champion Cuer Chrysler Dodge Jeep",
-    distance: "7 miles away",
+    model: "2025 Kia Telluride",
+    package: "SX Prestige Package",
+    price: "$46,100",
+    dealer: "Simari Kia",
+    distance: "3 miles away",
     badge: "GOOD PRICE"
   },
 ]
 
 export default function CarListings() {
   return (
-    <section className={styles.section}>
+    <section id="listings" className={styles.section}>
       <div className={styles.header}>
         <h2 className={styles.title}>For Sale Near You</h2>
         <div className={styles.subtitleContainer}>

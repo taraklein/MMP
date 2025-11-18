@@ -1,0 +1,19 @@
+.main {
+  min-height: 100vh;
+  background: #fff;
+  position: relative;
+}
+
+.contentWrapper {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  gap: 40px;
+}
+
+.mainContent {
+  flex: 1;
+  min-width: 0;
+}
+

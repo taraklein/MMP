@@ -9,15 +9,22 @@ export default function ReviewSection() {
   ]
 
   return (
-    <section className={styles.section}>
+    <section id="review" className={styles.section}>
       <div className={styles.container}>
         <h2 className={styles.title}>2025 Kia Telluride Review</h2>
         
         <div className={styles.authorInfo}>
-          <p className={styles.author}>
-            By <span className={styles.authorName}>Mark Takahashi</span>
-          </p>
-          <p className={styles.authorTitle}>C/D Contributing Editor</p>
+          <img 
+            src="/images/author/mark.jpeg" 
+            alt="Mark Takahashi"
+            className={styles.authorImage}
+          />
+          <div className={styles.authorText}>
+            <p className={styles.author}>
+              By <span className={styles.authorName}>Mark Takahashi</span>
+            </p>
+            <p className={styles.authorTitle}>C/D Contributing Editor</p>
+          </div>
         </div>
         
         <div className={styles.whatsNew}>

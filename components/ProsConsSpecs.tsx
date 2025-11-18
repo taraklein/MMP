@@ -15,7 +15,7 @@ export default function ProsConsSpecs() {
   ]
 
   return (
-    <section className={styles.section}>
+    <section id="pros-cons" className={styles.section}>
       <div className={styles.container}>
         <div className={styles.card}>
           <div className={styles.cardHeader}>
@@ -124,16 +124,10 @@ export default function ProsConsSpecs() {
           </div>
           <div className={styles.warranty}>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path
-                d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
-                stroke="#1b5f8a"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
+              <circle cx="12" cy="12" r="10" fill="#1b5f8a" />
               <path
                 d="M9 12L11 14L15 10"
-                stroke="#1b5f8a"
+                stroke="#ffffff"
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -154,17 +148,6 @@ export default function ProsConsSpecs() {
             <text x="16" y="20" textAnchor="middle" fontSize="11" fill="#1b5f8a" fontWeight="700">VS</text>
           </svg>
           <span>Compare with Top Competitors</span>
-        </button>
-        <button className={`${styles.actionButton} ${styles.actionButtonGreen}`}>
-          <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-            <path
-              d="M16 8V24M8 16H24"
-              stroke="#26870d"
-              strokeWidth="2"
-              strokeLinecap="round"
-            />
-          </svg>
-          <span>Get Your Trade-in Value</span>
         </button>
         <button className={styles.actionButton}>
           <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
@@ -189,6 +172,27 @@ export default function ProsConsSpecs() {
           </svg>
           <span>See All Specifications</span>
         </button>
+        <button className={`${styles.actionButton} ${styles.actionButtonGreen}`}>
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+            <path
+              d="M16 8V24M8 16H24"
+              stroke="#26870d"
+              strokeWidth="2"
+              strokeLinecap="round"
+            />
+          </svg>
+          <span>Get Your Trade-in Value</span>
+        </button>
+      </div>
+
+      <div className={styles.adUnit}>
+        <div className={styles.adContainer}>
+          {/* 768x90 Ad Unit */}
+          <div className={styles.adPlaceholder}>
+            <span className={styles.adLabel}>Advertisement</span>
+            <div className={styles.adContent}>768 x 90</div>
+          </div>
+        </div>
       </div>
     </section>
   )

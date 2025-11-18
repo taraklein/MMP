@@ -1,0 +1,89 @@
+.sidebar {
+  width: 300px;
+  flex-shrink: 0;
+}
+
+.sticky {
+  position: sticky;
+  top: 100px;
+}
+
+.card {
+  background: #f8f8f8;
+  border-radius: 8px;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.cardTitle {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #1a1a1a;
+}
+
+.facts {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.factItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.factItem:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.factLabel {
+  font-size: 14px;
+  color: #666;
+}
+
+.factValue {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.dealerButton,
+.compareButton {
+  width: 100%;
+  padding: 12px 16px;
+  background: #0061af;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.dealerButton:hover,
+.compareButton:hover {
+  background: #004d8a;
+}
+
+.compareButton {
+  background: #fff;
+  color: #0061af;
+  border: 2px solid #0061af;
+}
+
+.compareButton:hover {
+  background: #f0f7ff;
+}
+
+@media (max-width: 1024px) {
+  .sidebar {
+    display: none;
+  }
+}
+

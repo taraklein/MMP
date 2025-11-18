@@ -13,9 +13,9 @@
 }
 
 .topContent {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 40px;
+  max-width: 1200px;
+  margin: 0 255px;
+  padding: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -131,17 +131,20 @@
 }
 
 .nav {
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 12px 40px;
+  padding: 12px 0px;
   display: flex;
-  justify-content: flex-start;
-  gap: 32px;
+  justify-content: space-between;
+  gap: 45px;
   font-size: 12px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   border-bottom: 1px solid #e5e5e5;
+  text-align: left;
+  padding-left: 0px;
+  padding-right: 0px;
 }
 
 .navLink {
