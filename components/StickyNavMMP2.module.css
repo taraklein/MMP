@@ -32,11 +32,11 @@
 }
 
 .navItem:hover {
-  color: #0061af;
+  color: #1B5F8A;
 }
 
 .navItem.active {
-  color: #0061af;
+  color: #1B5F8A;
 }
 
 .navItem.active::after {
@@ -46,5 +46,5 @@
   left: 0;
   right: 0;
   height: 2px;
-  background: #0061af;
+  background: #1B5F8A;
 }

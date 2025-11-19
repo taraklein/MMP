@@ -2,36 +2,115 @@
   margin-bottom: 60px;
 }
 
-.title {
-  font-size: 28px;
-  font-weight: 700;
-  margin-bottom: 24px;
-  color: #1a1a1a;
+.card {
+  background: #F1F7F7;
+  border-radius: 8px;
+  padding: 24px;
+  max-width: 870px;
 }
 
-.grid {
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0;
+  color: #000;
+}
+
+.seeAllLink {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #1B5F8A;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.seeAllLink:hover {
+  color: #154a6b;
+}
+
+.arrow {
+  flex-shrink: 0;
+}
+
+.specsSection {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 24px;
+  margin-bottom: 24px;
 }
 
 .specItem {
   display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.iconContainer {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.iconContainer svg {
+  width: 24px;
+  height: 24px;
+  color: #000;
+}
+
+.specContent {
+  display: flex;
   flex-direction: column;
-  gap: 8px;
-  padding: 16px;
-  background: #f8f8f8;
-  border-radius: 8px;
+  gap: 4px;
+  flex: 1;
 }
 
 .label {
-  font-size: 14px;
+  font-size: 13px;
   color: #666;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .value {
-  font-size: 18px;
-  color: #1a1a1a;
-  font-weight: 600;
+  font-size: 16px;
+  color: #000;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.divider {
+  height: 1px;
+  background: #e0e0e0;
+  margin: 24px 0;
+}
+
+.warrantySection {
+  margin-top: 0;
+}
+
+@media (max-width: 768px) {
+  .specsSection {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
 }

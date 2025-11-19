@@ -1,29 +1,39 @@
 import Header from '@/components/Header'
 import HeroSectionMMP2 from '@/components/HeroSectionMMP2'
-import StickyNavMMP2 from '@/components/StickyNavMMP2'
+import AdUnit from '@/components/AdUnit'
+import RightRailAd from '@/components/RightRailAd'
+import CarListings from '@/components/CarListings'
 import KeySpecifications from '@/components/KeySpecifications'
-import ProsConsMMP2 from '@/components/ProsConsMMP2'
-import EditorialQuote from '@/components/EditorialQuote'
-import RightSidebar from '@/components/RightSidebar'
-import PhotoGallery from '@/components/PhotoGallery'
+import AIOverview from '@/components/AIOverview'
 import ReviewSection from '@/components/ReviewSection'
+import RightSidebar from '@/components/RightSidebar'
 import styles from './page.module.css'
 
 export default function MMP2Page() {
   return (
     <main className={styles.main}>
       <Header />
-      <HeroSectionMMP2 />
+      <div className={styles.heroGradientWrapper}>
+        <div className={styles.heroWrapper}>
+          <HeroSectionMMP2 />
+          <div className={styles.heroSidebar}>
+            <RightSidebar />
+          </div>
+        </div>
+      </div>
+      <AdUnit />
       <div className={styles.contentWrapper}>
+        <div className={styles.listingsWithAd}>
+          <div className={styles.mainContent}>
+            <CarListings />
+          </div>
+          <RightRailAd />
+        </div>
         <div className={styles.mainContent}>
-          <StickyNavMMP2 />
           <KeySpecifications />
-          <ProsConsMMP2 />
-          <EditorialQuote />
-          <PhotoGallery />
+          <AIOverview />
           <ReviewSection />
         </div>
-        <RightSidebar />
       </div>
     </main>
   )

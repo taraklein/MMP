@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react'
 import Image from 'next/image'
+import ProsConsMMP2 from './ProsConsMMP2'
 import styles from './HeroSectionMMP2.module.css'
 
 const heroImage = "/images/hero/2023-kia-telluride-x-line-101-1666960056.jpg"
@@ -10,6 +11,7 @@ const exteriorImages = [
   "/images/exterior/2023-kia-telluride-x-line-103-1666960055.jpg",
   "/images/exterior/2023-kia-telluride-x-line-104-1666960056.jpg",
 ]
+const interiorImage = "/images/interior/2023-kia-telluride-x-line-110-1666960065.jpg"
 const tenBestIcon = "/images/awards/ten-best.bcb6ac1.svg"
 const editorsChoiceIcon = "/images/awards/editors-choice.7ecd596.svg"
 const modelYears = ['2025', '2024', '2023', '2022', '2021']
@@ -43,6 +45,7 @@ export default function HeroSectionMMP2() {
   }
 
   const allImages = [heroImage, ...exteriorImages]
+  const thumbnailImages = [heroImage, interiorImage]
 
   return (
     <section className={styles.hero}>
@@ -63,7 +66,7 @@ export default function HeroSectionMMP2() {
               width="16" 
               height="16" 
               viewBox="0 0 24 24" 
-              fill={isFavorited ? "#0061af" : "none"} 
+              fill={isFavorited ? "#1B5F8A" : "none"} 
               stroke="currentColor" 
               strokeWidth="2" 
               strokeLinecap="round" 
@@ -138,7 +141,7 @@ export default function HeroSectionMMP2() {
             />
           </div>
           <div className={styles.thumbnails}>
-            {allImages.slice(0, 2).map((image, index) => (
+            {thumbnailImages.map((image, index) => (
               <button
                 key={index}
                 className={`${styles.thumbnail} ${selectedImage === image ? styles.thumbnailActive : ''}`}
@@ -151,11 +154,24 @@ export default function HeroSectionMMP2() {
                 />
               </button>
             ))}
-            <button className={styles.viewMoreButton}>
-              VIEW MORE PHOTOS →
-            </button>
+            <div className={styles.viewAllSlide}>
+              <img 
+                src={interiorImage} 
+                alt="View all photos"
+                className={styles.viewAllImage}
+              />
+              <div className={styles.viewAllOverlay}>
+                <button className={styles.viewAllLink}>
+                  VIEW ALL PHOTOS
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className={styles.viewAllArrow}>
+                    <path d="M6 12L10 8L6 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
+        <ProsConsMMP2 />
       </div>
     </section>
   )

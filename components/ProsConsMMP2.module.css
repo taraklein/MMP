@@ -1,72 +1,82 @@
 .section {
-  margin-bottom: 60px;
-}
-
-.title {
-  font-size: 28px;
-  font-weight: 700;
-  margin-bottom: 24px;
-  color: #1a1a1a;
+  background: transparent;
+  padding: 48px 0 0 0;
+  width: 770px;
+  max-width: 100%;
 }
 
 .container {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
 }
 
-.pros,
-.cons {
-  padding: 24px;
+.card {
+  background: #fff;
   border-radius: 8px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.pros {
-  background: #f0f9f4;
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #e5e5e5;
 }
 
-.cons {
-  background: #fef2f2;
+.cardTitle {
+  font-size: 18px;
+  font-weight: 700;
+  color: #000;
+  margin: 0;
 }
 
-.subtitle {
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 16px;
-  color: #1a1a1a;
+.checkIcon,
+.xIcon {
+  flex-shrink: 0;
 }
 
 .list {
   list-style: none;
   padding: 0;
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .listItem {
   display: flex;
   align-items: flex-start;
   gap: 12px;
-  padding: 12px 0;
-  font-size: 16px;
+  font-size: 15px;
   line-height: 1.5;
-  color: #333;
+  color: #222;
 }
 
-.checkmark {
-  color: #26870d;
-  font-weight: bold;
-  font-size: 18px;
+.listItem svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.checkSmall,
+.xSmall {
   flex-shrink: 0;
 }
 
-.xmark {
-  color: #dc2626;
-  font-weight: bold;
-  font-size: 18px;
-  flex-shrink: 0;
-}
+@media (max-width: 1024px) {
+  .section {
+    width: 100%;
+  }
 
-@media (max-width: 768px) {
   .container {
     grid-template-columns: 1fr;
   }
