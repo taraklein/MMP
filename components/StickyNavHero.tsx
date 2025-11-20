@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import styles from './StickyNavHero.module.css'
 
-const navItems = [
+const defaultNavItems = [
   { id: 'pros-cons', label: 'Summary' },
   { id: 'gallery', label: 'Photos' },
   { id: 'ai-overview', label: 'Overview' },
@@ -11,15 +11,21 @@ const navItems = [
   { id: 'review', label: 'Review' },
 ]
 
+interface NavItem {
+  id: string
+  label: string
+}
+
 interface StickyNavHeroProps {
   vehicleName?: string
   price?: string
+  navItems?: NavItem[]
 }
 
-export default function StickyNavHero({ vehicleName = '2025 Kia Telluride', price = '$37,885–$55,180' }: StickyNavHeroProps) {
+export default function StickyNavHero({ vehicleName = '2025 Kia Telluride', price = '$37,885–$55,180', navItems = defaultNavItems }: StickyNavHeroProps) {
   const [isVisible, setIsVisible] = useState(false)
   const [isFavorited, setIsFavorited] = useState(false)
-  const [activeSection, setActiveSection] = useState('pros-cons')
+  const [activeSection, setActiveSection] = useState(navItems[0]?.id || 'pros-cons')
 
   useEffect(() => {
     const handleScroll = () => {
@@ -48,7 +54,7 @@ export default function StickyNavHero({ vehicleName = '2025 Kia Telluride', pric
     handleScroll()
 
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  }, [navItems])
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id)

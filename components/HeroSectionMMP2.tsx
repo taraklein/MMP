@@ -121,7 +121,7 @@ export default function HeroSectionMMP2() {
               height={16} 
               className={styles.badgeIcon}
             />
-            Editor's Choice
+            Editor&apos;s Choice
           </span>
           <span className={styles.badge}>Full-Size SUV</span>
         </div>

@@ -1,5 +1,6 @@
 import Header from '@/components/Header'
 import HeroSectionMMP2 from '@/components/HeroSectionMMP2'
+import StickyNavHero from '@/components/StickyNavHero'
 import AdUnit from '@/components/AdUnit'
 import RightRailAd from '@/components/RightRailAd'
 import CarListings from '@/components/CarListings'
@@ -21,6 +22,14 @@ export default function MMP2Page() {
           </div>
         </div>
       </div>
+      <StickyNavHero 
+        navItems={[
+          { id: 'specs', label: 'Specs' },
+          { id: 'listings', label: 'For Sale Near You' },
+          { id: 'ai-overview', label: 'Overview' },
+          { id: 'review', label: 'Review' },
+        ]}
+      />
       <AdUnit />
       <div className={styles.contentWrapper}>
         <div className={styles.listingsWithAd}>

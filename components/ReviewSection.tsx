@@ -45,7 +45,7 @@ export default function ReviewSection() {
                 strokeLinejoin="round"
               />
             </svg>
-            <h3 className={styles.whatsNewTitle}>What's New</h3>
+            <h3 className={styles.whatsNewTitle}>What&apos;s New</h3>
           </div>
           <ul className={styles.whatsNewList}>
             {whatsNew.map((item, index) => (
@@ -73,20 +73,20 @@ export default function ReviewSection() {
             three rows, the Telluride offers ample room for families and cargo alike.
           </p>
           <p className={styles.reviewText}>
-            The interior design showcases Kia's attention to detail, with high-quality materials 
+            The interior design showcases Kia&apos;s attention to detail, with high-quality materials 
             and thoughtful touches throughout. Standard features are comprehensive, making even 
-            the base model feel well-equipped. The Telluride's cabin approaches luxury standards, 
+            the base model feel well-equipped. The Telluride&apos;s cabin approaches luxury standards, 
             providing a comfortable and sophisticated environment for all occupants.
           </p>
           <p className={styles.reviewText}>
-            While the Telluride excels in many areas, it's worth noting that some competitors 
+            While the Telluride excels in many areas, it&apos;s worth noting that some competitors 
             may offer better handling dynamics. Additionally, the driver-assist systems can be 
-            overly sensitive at times. However, these minor drawbacks don't detract from the 
+            overly sensitive at times. However, these minor drawbacks don&apos;t detract from the 
             overall excellence of this three-row SUV.
           </p>
           <p className={styles.reviewText}>
             The Telluride remains at the top of its class, delivering on its promise of space, 
-            comfort, and value. Whether you're navigating city streets or embarking on long road 
+            comfort, and value. Whether you&apos;re navigating city streets or embarking on long road 
             trips, the 2025 Kia Telluride provides a compelling option for those seeking a 
             premium full-size SUV experience.
           </p>

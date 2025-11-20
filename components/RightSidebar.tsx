@@ -1,5 +1,6 @@
 'use client'
 
+import { useEffect, useRef, useState } from 'react'
 import styles from './RightSidebar.module.css'
 import Image from 'next/image'
 
@@ -7,9 +8,66 @@ const tenBestIcon = "/images/awards/ten-best.bcb6ac1.svg"
 const editorsChoiceIcon = "/images/awards/editors-choice.7ecd596.svg"
 
 export default function RightSidebar() {
+  const stickyRef = useRef<HTMLDivElement>(null)
+  const readReviewButtonRef = useRef<HTMLButtonElement>(null)
+  const [bottomConstraint, setBottomConstraint] = useState<number | null>(null)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!stickyRef.current || !readReviewButtonRef.current) return
+
+      // Find the Pros and Cons section
+      const prosConsSection = document.getElementById('pros-cons')
+      if (!prosConsSection) return
+
+      // Get the sidebar container (aside element)
+      const sidebarElement = stickyRef.current.closest('aside')
+      if (!sidebarElement) return
+
+      // Get positions relative to viewport
+      const prosConsRect = prosConsSection.getBoundingClientRect()
+      const prosConsBottomViewport = prosConsRect.bottom
+      
+      const stickyRect = stickyRef.current.getBoundingClientRect()
+      const buttonRect = readReviewButtonRef.current.getBoundingClientRect()
+      
+      // Calculate the distance from sticky top to button bottom
+      const buttonOffsetFromStickyTop = buttonRect.bottom - stickyRect.top
+      
+      // When sticky, the sidebar top is at 24px from viewport top
+      // We want the button bottom to align with Pros and Cons bottom
+      // So: 24px + buttonOffsetFromStickyTop should equal prosConsBottomViewport
+      // If button bottom is already at or past Pros and Cons bottom, apply bottom constraint
+      // The bottom constraint = viewport height - prosConsBottomViewport
+      // This ensures the sticky element's bottom edge is at prosConsBottomViewport
+      if (buttonRect.bottom >= prosConsBottomViewport) {
+        const calculatedBottom = window.innerHeight - prosConsBottomViewport
+        setBottomConstraint(calculatedBottom)
+      } else {
+        setBottomConstraint(null)
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    window.addEventListener('resize', handleScroll, { passive: true })
+    
+    // Initial check after a small delay to ensure DOM is ready
+    const timeoutId = setTimeout(handleScroll, 100)
+
+    return () => {
+      clearTimeout(timeoutId)
+      window.removeEventListener('scroll', handleScroll)
+      window.removeEventListener('resize', handleScroll)
+    }
+  }, [])
+
   return (
     <aside className={styles.sidebar}>
-      <div className={styles.sticky}>
+      <div 
+        ref={stickyRef} 
+        className={styles.sticky}
+        style={bottomConstraint !== null ? { bottom: `${bottomConstraint}px` } : undefined}
+      >
         <div className={`${styles.card} ${styles.ratingCard}`}>
           <div className={styles.ratingBox}>
             <div className={styles.ratingLeft}>
@@ -32,7 +90,7 @@ export default function RightSidebar() {
           <div className={styles.priceRange}>MSRP RANGE</div>
           <div className={styles.priceValue}>$37,885–$55,180</div>
           <div className={styles.priceLink}>
-            &gt; See how this vehicle's price has changed
+            &gt; See how this vehicle&apos;s price has changed
           </div>
           <div className={styles.priceButtons}>
             <button className={styles.primaryButton}>SHOP LOCAL LISTINGS</button>
@@ -55,7 +113,7 @@ export default function RightSidebar() {
             </div>
             <div className={styles.awardBadge}>
               <Image src={editorsChoiceIcon} alt="Editor's Choice" width={32} height={32} />
-              <span>Editor's Choice 2025 Winner</span>
+              <span>Editor&apos;s Choice 2025 Winner</span>
             </div>
           </div>
         </div>
@@ -69,7 +127,7 @@ export default function RightSidebar() {
             <button className={styles.nextStepButton}>
               SEE ALL SPECIFICATIONS →
             </button>
-            <button className={styles.nextStepButton}>
+            <button ref={readReviewButtonRef} className={styles.nextStepButton}>
               READ FULL REVIEW →
             </button>
           </div>

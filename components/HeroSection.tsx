@@ -111,7 +111,7 @@ export default function HeroSection() {
                     height={16} 
                     className={styles.badgeIcon}
                   />
-                  EDITOR'S CHOICE
+                  EDITOR&apos;S CHOICE
                 </span>
                 <span className={styles.badge}>FULL-SIZE SUV</span>
               </div>
@@ -134,7 +134,7 @@ export default function HeroSection() {
           <button className={styles.shopButton}>SHOP LOCAL LISTINGS</button>
         </div>
         <a href="#" className={styles.priceLink}>
-          See how this vehicle's price has changed ↑
+          See how this vehicle&apos;s price has changed ↑
         </a>
       </div>
     </section>
