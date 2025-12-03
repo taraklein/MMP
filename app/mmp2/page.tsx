@@ -7,6 +7,7 @@ import CarListings from '@/components/CarListings'
 import KeySpecifications from '@/components/KeySpecifications'
 import AIOverview from '@/components/AIOverview'
 import ReviewSection from '@/components/ReviewSection'
+import PricingSection from '@/components/PricingSection'
 import RightSidebar from '@/components/RightSidebar'
 import styles from './page.module.css'
 
@@ -42,6 +43,7 @@ export default function MMP2Page() {
           <KeySpecifications />
           <AIOverview />
           <ReviewSection />
+          <PricingSection />
         </div>
       </div>
     </main>

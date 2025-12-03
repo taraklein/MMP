@@ -7,6 +7,7 @@ import PhotoGallery from '@/components/PhotoGallery'
 import AIOverview from '@/components/AIOverview'
 import CarListings from '@/components/CarListings'
 import ReviewSection from '@/components/ReviewSection'
+import PricingSection from '@/components/PricingSection'
 import styles from './page.module.css'
 
 export default function Home() {
@@ -25,6 +26,7 @@ export default function Home() {
           <AIOverview />
           <CarListings />
           <ReviewSection />
+          <PricingSection />
         </div>
         <div className={styles.rightRail}>
           <div className={styles.adUnit}>
