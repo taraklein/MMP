@@ -2,17 +2,34 @@
   padding-top: 4px;
   padding-bottom: 0;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .container {
+  width: 100%;
   max-width: 870px;
   margin: 60px 0 0 0;
   padding: 24px;
-  background: linear-gradient(135deg, #1B5F8A 0%, #D2232A 100%);
+  background: linear-gradient(to right, #1B5F8A 0%, #D2232A 100%);
   border-radius: 12px;
   display: flex;
   flex-direction: column;
   gap: 24px;
+  position: relative;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out;
+  min-height: 800px;
+}
+
+.container.collapsed {
+  max-height: 800px;
+  height: 800px;
+}
+
+.container.expanded {
+  max-height: 3000px;
 }
 
 .headerCard {
@@ -36,10 +53,100 @@
   flex-shrink: 0;
 }
 
+.loadingOverlay {
+  position: absolute;
+  top: 88px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #fff;
+  border-radius: 0 0 12px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 32px 32px 32px;
+  z-index: 10;
+}
+
+.thinkingAnimation {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.thinkingDot {
+  width: 8px;
+  height: 8px;
+  background: #999;
+  border-radius: 50%;
+  animation: thinkingPulse 1.4s ease-in-out infinite;
+}
+
+.thinkingDot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.thinkingDot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes thinkingPulse {
+  0%, 80%, 100% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+  40% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+.thinkingText {
+  display: none;
+}
+
+.cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.2em;
+  background: #1b5f8a;
+  margin-left: 2px;
+  animation: blink 1s infinite;
+  vertical-align: baseline;
+}
+
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
 .contentCard {
   background: #fff;
+  border: 1px solid #e0e0e0;
   border-radius: 12px;
   padding: 32px;
+  position: relative;
+}
+
+.contentCard:first-of-type {
+  height: fit-content;
+  min-height: auto;
+  max-height: none;
+  overflow-y: visible;
+  padding-bottom: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.contentCard:nth-of-type(2) {
+  height: 400px;
+  min-height: 400px;
+  max-height: 300px;
 }
 
 .subtitle {
@@ -47,6 +154,8 @@
   font-weight: 700;
   color: #000;
   margin: 0 0 20px;
+  position: relative;
+  z-index: 1;
 }
 
 .textContent {
@@ -55,11 +164,48 @@
   gap: 16px;
 }
 
+.expandableContent {
+  overflow: hidden;
+  transition: max-height 0.4s ease-out, opacity 0.4s ease-out;
+}
+
+.expandableContent.collapsed {
+  max-height: 0;
+  opacity: 0;
+}
+
+.expandableContent.expanded {
+  max-height: 2000px;
+  opacity: 1;
+}
+
+.fadeOverlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to bottom, 
+    transparent 0%,
+    rgba(255, 255, 255, 0.1) 20%,
+    rgba(255, 255, 255, 0.3) 40%,
+    rgba(255, 255, 255, 0.6) 60%,
+    rgba(255, 255, 255, 0.85) 80%,
+    rgba(255, 255, 255, 0.95) 90%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  pointer-events: none;
+  z-index: 5;
+  border-radius: 12px;
+}
+
 .carName {
   font-size: 18px;
   font-weight: 700;
   color: #1b5f8a;
   margin: 0;
+  position: relative;
+  z-index: 1;
 }
 
 .description {
@@ -67,23 +213,87 @@
   line-height: 1.7;
   color: #333;
   margin: 0;
+  margin-bottom: 0;
+  position: relative;
+  z-index: 1;
 }
 
-.readMore {
+.contentCard:first-of-type .description {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  line-height: 1.7;
+}
+
+.contentCard:first-of-type p:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.contentCard:first-of-type .subtitle {
+  margin-bottom: 20px;
+}
+
+.contentCard.loading .description,
+.contentCard.loading .carName {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.contentCard.loading .subtitle {
+  opacity: 1;
+}
+
+.readMoreButton {
+  position: absolute;
+  bottom: 16px;
+  left: 24px;
+  right: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   color: #1b5f8a;
   font-size: 15px;
   font-weight: 600;
-  text-decoration: underline;
-  transition: color 0.2s;
-  align-self: flex-start;
+  background: #fff;
+  border: 1px solid #1b5f8a;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 8px 16px;
+  transition: color 0.2s, border-color 0.2s, opacity 0.3s;
+  z-index: 15;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.readMore:hover {
+.readMoreButton:disabled {
+  cursor: not-allowed;
+}
+
+.readMoreButtonExpanded {
+  position: static;
+  margin-top: 24px;
+  max-width: 870px;
+  width: 100%;
+  left: auto;
+  right: auto;
+}
+
+.readMoreButton:hover {
   color: #154a6b;
+  border-color: #154a6b;
+}
+
+.chevron {
+  transition: transform 0.3s ease;
+}
+
+.chevronExpanded {
+  transform: rotate(180deg);
 }
 
 .disclaimerCard {
   background: #fff;
+  border: 1px solid #e0e0e0;
   border-radius: 12px;
   padding: 24px 32px;
 }
@@ -102,6 +312,12 @@
 
   .container {
     padding: 20px;
+    min-height: 700px;
+  }
+
+  .container.collapsed {
+    height: 700px;
+    max-height: 700px;
   }
 
   .headerCard {
@@ -110,6 +326,33 @@
 
   .contentCard {
     padding: 24px;
+  }
+
+  .contentCard:first-of-type {
+    min-height: auto;
+  }
+
+  .contentCard:nth-of-type(2) {
+    height: 350px;
+    min-height: 350px;
+  }
+
+  .fadeOverlay {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .readMoreButton {
+    bottom: 12px;
+    left: 20px;
+    right: 20px;
+  }
+
+  .readMoreButtonExpanded {
+    margin-top: 20px;
+    width: calc(100% - 40px);
   }
 
   .disclaimerCard {
